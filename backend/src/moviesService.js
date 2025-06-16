@@ -10,9 +10,7 @@ const db = knex({
     }
 });
 
-// ...rest of your service code remains unchanged...
 
-// Service Layer Functions
 
 const displayMovies = async () => {
     return await db('contentTitle').select('*');
@@ -45,7 +43,7 @@ const modifyMovies = async (id, titleType, primaryTitle, year, runtimeMinutes, g
         });
 };
 
-// Module Exports
+
 module.exports = {
     displayMovies,
     registerMovies,

@@ -22,7 +22,7 @@ exports.createMovie = async (req, res) => {
     const movie = await registerMovies(titleType, primaryTitle, year, runtimeMinutes, genres);
     res.status(201).json(movie);
   } catch (err) {
-    console.error(err); // Log the error for debugging
+    console.error(err);
     res.status(500).json({ error: 'Failed to create movie' });
   }
 };
@@ -37,7 +37,7 @@ exports.deleteMovie = async (req, res) => {
       res.status(404).json({ message: 'Movie not found' });
     }
   } catch (err) {
-    console.error(err); // Log the error for debugging
+    console.error(err);
     res.status(500).json({ error: 'Failed to delete movie' });
   }
 };
@@ -53,7 +53,7 @@ exports.updateMovie = async (req, res) => {
       res.status(404).json({ message: 'Movie not found' });
     }
   } catch (err) {
-    console.error(err); // Log the error for debugging
+    console.error(err);
     res.status(500).json({ error: 'Failed to update movie' });
   }
 };
