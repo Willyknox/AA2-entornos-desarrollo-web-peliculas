@@ -1,12 +1,16 @@
 // Knex database initialization
 const knex = require('knex');
 const db = knex({
-    client: 'sqlite3',
+    client: 'mysql2',
     connection: {
-        filename: "movies.db"
-    },
-    useNullAsDefault: true
+        host: 'localhost', 
+        user: 'admin',      
+        password: 'admin',  
+        database: 'contentTitle'     
+    }
 });
+
+// ...rest of your service code remains unchanged...
 
 // Service Layer Functions
 

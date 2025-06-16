@@ -44,7 +44,6 @@ exports.deleteMovie = async (req, res) => {
 
 exports.updateMovie = async (req, res) => {
   try {
-    console.log('Received body:', req.body); // Log the body for debugging
     const { id } = req.params;
     const { titleType, primaryTitle, year, runtimeMinutes, genres } = req.body;
     const updated = await modifyMovies(id, titleType, primaryTitle, year, runtimeMinutes, genres);
