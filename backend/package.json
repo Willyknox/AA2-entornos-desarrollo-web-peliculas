@@ -1,0 +1,19 @@
+{
+  "name": "primera-entrega",
+  "version": "1.0.0",
+  "description": "My first proyect ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "Guillermo Labara",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "knex": "^3.1.0",
+    "nodemon": "^3.1.10",
+    "sqlite3": "^5.1.7"
+  },
+  "keywords": []
+}

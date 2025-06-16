@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>movie and tv show list</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Gestión de Películas</title>
+  <style>
+    body {
+      background: hsl(60, 43%, 69%);
+    }
+    .table thead th {
+      background: #343a40;
+      color: #fff;
+      text-align: center;
+    }
+    .table tbody td {
+      vertical-align: middle;
+      text-align: center;
+      background: #f7d870;
+    }
+    .container {
+      margin-top: 40px;
+      margin-left: 250px;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 32px 24px;
+    }
+     
+    a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #343a40;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body onload="titlesRecieved()">
+  <div class="container">
+  <h1>Tv and movies list </h1><p>
+     <a href="register.html" class="button">Register</a>
+    
+    </p>
+    <table class="class= table table-striped table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Año</th>
+            <th>Tipo</th>
+            <th>Género</th>
+            <th>Duración</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+      <tbody id="tableBody">
+      </tbody>
+    </table>
+    </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
