@@ -2,14 +2,22 @@ services:
   db:
     image: mariadb:11.3.2
     container_name: movies-db
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_USER: 'admin'
       MYSQL_PASSWORD: 'admin'
+      MYSQL_PORT: 3306
       MYSQL_ROOT_PASSWORD: 'rootpassword'
     volumes:
       - ./db:/docker-entrypoint-initdb.d
     networks:
       - network1
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     build: ./backend
