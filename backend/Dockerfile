@@ -1,4 +1,7 @@
-FROM node:alpine
-COPY ./ ./
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-CMD npm start
+COPY . .
+EXPOSE 8082
+CMD ["npm", "start"]
