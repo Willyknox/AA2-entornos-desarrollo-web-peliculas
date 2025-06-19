@@ -1,18 +1,17 @@
 // Knex database initialization
 const knex = require('knex');
 const db = knex({
-    client: 'mysql2',
+    client: 'sqlite3',
     connection: {
-        host: 'localhost', 
-        user: 'admin',      
-        password: 'admin',  
-        database: 'contentTitle'     
-    }
+        filename: "movies.db"
+    },
+    useNullAsDefault: true
 });
 
-
+// Service Layer Functions
 
 const displayMovies = async () => {
+    //console.log('Hola que tal');
     return await db('contentTitle').select('*');
 };
 
@@ -43,10 +42,15 @@ const modifyMovies = async (id, titleType, primaryTitle, year, runtimeMinutes, g
         });
 };
 
+const displayMovieById = async (id) => {
+    return await db('contentTitle').where({ id }).first();
+};
 
+// Module Exports
 module.exports = {
     displayMovies,
     registerMovies,
     deleteMovies,
-    modifyMovies
+    modifyMovies,
+    displayMovieById
 };

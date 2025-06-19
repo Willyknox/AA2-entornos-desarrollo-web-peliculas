@@ -9,7 +9,8 @@ app.use(cors());
 // Use the movies routes
 app.use('/api', moviesRoutes);
 
-const PORT = process.env.PORT || 8082;
-app.listen(PORT, () => {
-    console.log(`Backend server started on port ${PORT}`);
+app.get('/', (req, res) => {
+  res.send('¡Servidor funcionando correctamente!');
 });
+
+module.exports = app;
