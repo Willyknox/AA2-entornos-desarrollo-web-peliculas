@@ -14,4 +14,7 @@ router.delete('/movies/:id', moviesController.deleteMovie);
 // PUT update a movie by id
 router.put('/movies/:id', moviesController.updateMovie);
 
+// GET a movie by id
+router.get('/movies/:id', moviesController.getMovieById);
+
 module.exports = router;
