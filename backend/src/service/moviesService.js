@@ -1,9 +1,20 @@
 // Knex database initialization
 const knex = require('knex');
-const db = knex({
+/* const db = knex({
     client: 'sqlite3',
     connection: {
         filename: "movies.db"
+    },
+    useNullAsDefault: true
+}); */
+const db = knex({
+    client: 'mysql',
+    connection: {
+        host: config.db.host,
+        port: config.db.port,
+        user: config.db.user,
+        password: config.db.password,
+        database: config.db.database
     },
     useNullAsDefault: true
 });

@@ -4,7 +4,7 @@ const {
   deleteMovies,
   modifyMovies,
   displayMovieById
-} = require('../moviesService');
+} = require('../service/moviesService');
 
 // Controller functions
 exports.getAllMovies = async (req, res) => {
