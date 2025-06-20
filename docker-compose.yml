@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: moviesdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpass
+      MYSQL_ROOT_PASSWORD: rootpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: db
+      DB_USER: testuser
+      DB_PASSWORD: testpass
+      DB_NAME: moviesdb
+      DB_PORT: 3306
+    depends_on:
+      - db
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./backend:/usr/src/app
+    command: sh -c "npm install && npm start"
