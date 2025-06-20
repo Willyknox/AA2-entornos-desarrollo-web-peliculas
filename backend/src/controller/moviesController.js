@@ -20,11 +20,14 @@ exports.getAllMovies = async (req, res) => {
 
 exports.createMovie = async (req, res) => {
   try {
-    const { titleType, primaryTitle, year, runtimeMinutes, genres } = req.body;
+    let { titleType, primaryTitle, year, runtimeMinutes, genres } = req.body;
+    // Convert year and runtimeMinutes to numbers
+    year = Number(year);
+    runtimeMinutes = Number(runtimeMinutes);
     if (!primaryTitle) {
       return res.status(400).json({ status: 'bad-request', message: 'primaryTitle field is mandatory' });
     }
-    if (typeof year !== 'number') {
+    if (isNaN(year)) {
       return res.status(400).json({ status: 'bad-request', message: 'year must be a number' });
     }
     const movie = await registerMovies(titleType, primaryTitle, year, runtimeMinutes, genres);
