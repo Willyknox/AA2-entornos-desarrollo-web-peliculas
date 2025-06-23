@@ -1,0 +1,37 @@
+version: "3.4"
+name: movies
+services:
+  db:
+    image: mariadb:11.3.2
+    container_name: movies-db-dev
+    environment:
+      MYSQL_DATABASE: movies
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - network1
+  backend:
+    image: movies
+    build: ./backend
+    container_name: movies-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - network1
+  # TODO Añadir el frontend
+networks:
+  network1:
+    driver: bridge

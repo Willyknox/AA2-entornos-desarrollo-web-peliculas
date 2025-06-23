@@ -5,9 +5,9 @@ name: MoviesTest Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "sqllocal" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "sqllocal" ]
 
 jobs:
   build:
@@ -30,3 +30,7 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
     - run: npm test
+    - name: Build backend Docker image
+      run: docker build -t backend:ci ./backend
+    - name: Build frontend Docker image
+      run: docker build -t frontend:ci ./frontend
