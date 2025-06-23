@@ -8,11 +8,11 @@
   },
   "name": "frontend",
   "version": "1.0.0",
-  "type": "module",
-  "description": "Frontend of my little proyect.",
+  "description": "Frontend for Movie Management Web Application",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html"
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
   },
   "author": "Guillermo Labara",
   "license": "ISC",
