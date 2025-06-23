@@ -9,8 +9,5 @@ const argv = yargs(hideBin(process.argv)).argv;
 if (argv.config != undefined) {
     configFile = argv.config;
 }
-const config = yaml.load(fs.readFileSync(configFile, 'utf-8'));
+const production = yaml.load(fs.readFileSync('./src/config/config.prod.yaml', 'utf8'));
 
-module.exports = {
-    config
-};

@@ -47,6 +47,12 @@ services:
     container_name: movies-frontend
     ports:
       - "1234:1234"
+    volumes:
+      # Monta tu código fuente...
+      - ./frontend:/app
+      # ...pero crea un volumen anónimo para node_modules,
+      # preservando los del build y evitando que se sobrescriban.
+      - /app/node_modules
     networks:
       - network1
 
