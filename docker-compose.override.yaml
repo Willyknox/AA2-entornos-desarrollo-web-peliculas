@@ -24,6 +24,6 @@ services:
     ports:
       - "1234:1234" # Este ya estaba en el principal, pero no hace daño tenerlo aquí.
     volumes:
-      # Monta el código fuente del frontend.
-      # Cambia /app por la ruta donde tu Dockerfile copia el código.
+ 
       - ./frontend:/app
+      - /app/node_modules

@@ -1,7 +1,7 @@
 # backend/config.prod.yaml
 
 # Configuración de la base de datos
-database:
+db:
   host: 'db'          # El nombre del servicio de la DB en Docker
   user: 'user'        # El usuario que definiste
   password: 'password'    # La contraseña que definiste
