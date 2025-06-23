@@ -1,0 +1,6 @@
+db:
+  host: db
+  user: user
+  password: password
+  database: movies
+  port: 3306

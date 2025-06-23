@@ -1,0 +1,12 @@
+# backend/config.prod.yaml
+
+# Configuración de la base de datos
+database:
+  host: 'db'          # El nombre del servicio de la DB en Docker
+  user: 'user'        # El usuario que definiste
+  password: 'password'    # La contraseña que definiste
+  database: 'movies'  # El nombre de la base de datos
+
+# Puerto en el que correrá la API
+server:
+  port: 8082

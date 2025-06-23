@@ -1,0 +1,29 @@
+# docker-compose.override.yaml
+# Este archivo añade configuración para el entorno de desarrollo.
+# Se aplica automáticamente al ejecutar `docker-compose up`.
+
+version: "3.4"
+
+services:
+  db:
+    ports:
+      # Publicar el puerto de la DB en el host es útil para desarrollo,
+      # por si quieres conectar un cliente de base de datos desde tu máquina.
+      - "3306:3306"
+
+  backend:
+    ports:
+      - "8082:8082"
+    volumes:
+      # Monta tu código fuente local dentro del contenedor.
+      # El primer path es tu máquina, el segundo es dentro del contenedor.
+      # Cambia /app por la ruta donde tu Dockerfile copia el código.
+      - ./backend:/app
+
+  frontend:
+    ports:
+      - "1234:1234" # Este ya estaba en el principal, pero no hace daño tenerlo aquí.
+    volumes:
+      # Monta el código fuente del frontend.
+      # Cambia /app por la ruta donde tu Dockerfile copia el código.
+      - ./frontend:/app
